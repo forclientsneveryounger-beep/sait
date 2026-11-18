@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Трафик для артистов и концертов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--f:Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;--bg:#fff;--fg:#0a0a0a;--mut:#6b6b6b;--line:#0a0a0a;--soft:#dedede;--blue:#1a1aff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0a0a;--fg:#f5f5f5;--mut:#9a9a9a;--line:#f5f5f5;--soft:#2e2e2e;--blue:#6a6aff}}
+:root[data-theme="dark"]{--bg:#0a0a0a;--fg:#f5f5f5;--mut:#9a9a9a;--line:#f5f5f5;--soft:#2e2e2e;--blue:#6a6aff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f);font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+.w{max-width:1040px;margin:0 auto;padding:0 24px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-size:13px;font-weight:500}
+header b{font-weight:800;font-size:18px;letter-spacing:-.04em}
+header a{color:var(--fg);text-decoration:none;margin-left:24px}header a:hover{color:var(--blue)}
+h1{font-weight:800;font-size:clamp(38px,6.6vw,84px);line-height:.95;letter-spacing:-.06em;margin:28px 0 24px;max-width:900px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:start;padding-bottom:48px}
+.sub{font-weight:700;font-size:clamp(18px,2.2vw,26px);line-height:1.15;letter-spacing:-.03em;margin:0}
+.pl{margin:10px 0 0;font-size:13px;color:var(--mut)}
+.bar{width:48px;height:8px;background:var(--blue);margin:20px 0}
+.txt{max-width:340px;margin:0}
+.art{aspect-ratio:4/3;clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);background:__D__,radial-gradient(ellipse at 66% 22%,#f0f0f0 0,#9a9a9a 16%,#2b2b2b 46%,#0b0b0b 80%);filter:grayscale(1) contrast(1.1);position:relative}
+.art:after{content:"";position:absolute;inset:0;background:linear-gradient(102deg,transparent 40%,rgba(255,255,255,.26) 48%,transparent 57%)}
+section{padding:0 0 56px}
+.hd{display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--line);padding-bottom:12px;margin-bottom:20px}
+h2{font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.05em;line-height:1;margin:0}
+.ctl{display:flex;gap:10px;align-items:center;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums}
+.ctl button{width:40px;height:40px;border:1px solid var(--line);background:none;color:var(--fg);font:inherit;font-size:18px;cursor:pointer}
+.ctl button:hover{background:var(--fg);color:var(--bg)}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;align-items:stretch}
+.track::-webkit-scrollbar{display:none}
+.case{flex:0 0 min(88%,420px);scroll-snap-align:start;border:1px solid var(--soft)}
+.th{aspect-ratio:16/8;filter:grayscale(1) contrast(1.1);background:__D__,radial-gradient(ellipse at 60% 20%,#eee 0,#777 24%,#161616 66%)}
+.t2{background:__D__,radial-gradient(ellipse at 24% 30%,#eee 0,#777 22%,#1b1b1b 62%)}
+.t3{background:__D__,linear-gradient(110deg,#0d0d0d 30%,#c4c4c4 48%,#1a1a1a 62%)}
+.t4{background:__D__,radial-gradient(ellipse at 50% 100%,#e4e4e4 0,#6a6a6a 28%,#161616 72%)}
+.in{padding:16px 18px 10px}
+.no{font-size:12px;color:var(--blue);font-weight:700}
+.case h3{font-weight:800;font-size:22px;line-height:1.05;letter-spacing:-.04em;margin:4px 0 6px}
+.cap{font-size:12px;color:var(--mut);margin-bottom:14px}
+dl{margin:0;border-top:1px solid var(--line)}
+.row{padding:9px 0;border-bottom:1px solid var(--soft)}
+dt{font-size:11px;color:var(--mut);font-weight:500;margin-bottom:2px}dd{margin:0}
+.row.r dt{color:var(--blue)}.row.r dd{font-weight:700;font-size:15px}
+.svc div{display:grid;grid-template-columns:40px 1fr 1.4fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--soft)}
+.svc span{font-size:12px;color:var(--mut)}
+.svc h3{margin:0;font-weight:700;font-size:20px;letter-spacing:-.03em;line-height:1.15}.svc p{margin:0;color:var(--mut)}
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ct a{display:block;border:1px solid var(--line);padding:18px 20px;text-decoration:none;color:var(--fg);transition:background .2s,color .2s}
+.ct small{display:block;font-size:11px;color:var(--mut);margin-bottom:22px}
+.ct b{display:flex;justify-content:space-between;font-weight:700;font-size:20px;letter-spacing:-.03em}
+.ct b:after{content:"→";color:var(--blue)}
+.ct a:hover{background:var(--fg);color:var(--bg)}.ct a:hover small{color:var(--bg)}
+.cta{display:inline-block;margin-top:18px;font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue);padding-bottom:1px}.cta:after{content:" →"}.cta:hover{opacity:.65}
+section>.cta{display:block;width:max-content;margin:22px 0 0 auto}
+@media(max-width:760px){.w{padding:0 18px}.hero{grid-template-columns:1fr}.svc div{grid-template-columns:28px 1fr;row-gap:4px}.svc p{grid-column:2}.ct{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="w">
+<header><b>Трафик</b><nav><a href="#cases">Кейсы</a><a href="#uslugi">Услуги</a><a href="#contacts">Контакты</a></nav></header>
+
+<h1>Билеты, которые раскупают.</h1>
+<div class="hero">
+<div><p class="sub">Реклама для артистов, организаторов, лейблов, площадок.</p>
+<p class="pl">Яндекс Директ, ВКонтакте, Facebook, Instagram, Google, YouTube</p><div class="bar"></div>
+<p class="txt">Реклама для концертов, туров, релизов. Больше 10 лет работы. От стратегии до солдаута.</p><a class="cta" href="#contacts">Написать мне</a></div>
+<div class="art"></div>
+</div>
+
+<section id="cases"><div class="hd"><h2>Кейсы</h2><div class="ctl"><span id="c">01 / 04</span><button id="p" aria-label="Назад">←</button><button id="nx" aria-label="Вперёд">→</button></div></div>
+<div class="track" id="t">
+<article class="case"><div class="th t1"></div><div class="in"><div class="no">01</div><h3>Фестиваль «Дружба»</h3><div class="cap">Москва · 2 400 человек</div><dl><div class="row"><dt>Площадки</dt><dd>Яндекс Директ, ВКонтакте</dd></div><div class="row"><dt>Цель</dt><dd>2 000 человек</dd></div><div class="row"><dt>Сложности</dt><dd>При тестировании РСЯ не удалось найти связки, которые работали бы эффективнее, чем МК. Это тот случай, когда различные МК приносили большинство конверсий по выгодной стоимости.</dd></div><div class="row"><dt>Стратегия</dt><dd>Тестирование холодных аудиторий, увеличение числа поисковых запросов о фестивале и прогрев аудитории в течение полутора недель.</dd></div><div class="row r"><dt>Результат</dt><dd>Сбор: 2 400 человек. При рекламных затратах 175 000 ₽ прямой доход от рекламы составил 340 000 ₽.</dd></div></dl></div></article>
+<article class="case"><div class="th t2"></div><div class="in"><div class="no">02</div><h3>Концерты Сатьи</h3><div class="cap">Пушкино, Московская область · 2 солдаута</div><dl><div class="row"><dt>Площадки</dt><dd>Яндекс Директ, ВКонтакте</dd></div><div class="row"><dt>Сложности</dt><dd>Минимальный бюджет и короткие сроки. Нужно было продать все билеты, чтобы подписать контракт с артистом на второй концерт.</dd></div><div class="row"><dt>Решение</dt><dd>Использовали не только прямые запросы и аудиторию Сатьи, но и расширили таргетинг на людей, которые интересуются психологией отношений или испытывают трудности в браке. Также включили женщин, интересующихся культурными мероприятиями, в том числе балетом и спектаклями.</dd></div><div class="row r"><dt>Результат</dt><dd>Солдаут через месяц после запуска рекламы. Подписали контракт на второй концерт и также продали все билеты. Итого: два солдаута в залах вместимостью по 1 500 человек.</dd></div><div class="row"><dt>Затраты на рекламу</dt><dd>100 000 ₽</dd></div></dl></div></article>
+<article class="case"><div class="th t3"></div><div class="in"><div class="no">03</div><h3>Концерт Xoliday Boy</h3><div class="cap">Пушкино, Московская область · Солдаут</div><dl><div class="row"><dt>Площадки</dt><dd>Яндекс Директ, ВКонтакте</dd></div><div class="row"><dt>Сложности</dt><dd>В Москве также проходил концерт артиста, что создавало дополнительную конкуренцию.</dd></div><div class="row"><dt>Решение</dt><dd>Разделили рекламные кампании по географии: отдельно Пушкино, отдельно Московская область. Для Пушкино запустили объявления по запросам «афиша» и «события», дополнительно разделив аудиторию по возрасту. В Московской области настроили рекламу на аудиторию артиста. Лучше всего сработали РСЯ и МК с таргетингом на Пушкино.</dd></div><div class="row r"><dt>Результат</dt><dd>Солдаут при небольших рекламных расходах. Дополнительным подтверждением успешности кейса считаем то, что в соседних регионах солдаутов не было.</dd></div></dl></div></article>
+<article class="case"><div class="th t4"></div><div class="in"><div class="no">04</div><h3>Спектакль Кончаловского «Дядя Ваня»</h3><div class="cap">Ростов · 2 солдаута</div><dl><div class="row"><dt>Площадки</dt><dd>Яндекс Директ, ВКонтакте</dd></div><div class="row"><dt>Затраты на рекламу</dt><dd>53 000 ₽</dd></div><div class="row"><dt>Прямой доход от рекламы</dt><dd>281 500 ₽</dd></div><div class="row r"><dt>Результат</dt><dd>Солдаут в зале вместимостью 2 000 человек. Организовали дополнительный показ спектакля, на который также продали все билеты.</dd></div></dl></div></article>
+</div><a class="cta" href="#contacts">Написать мне</a></section>
+
+<section id="uslugi"><div class="hd"><h2>Услуги</h2></div>
+<div class="svc">
+<div><span>01</span><h3>Продвижение релизов</h3><p>Трек, альбом, клип, прогрев аудитории, рост прослушиваний и подписчиков.</p></div>
+<div><span>02</span><h3>Продажи билетов</h3><p>Настройка аналитики, продажа билетов через рекламу.</p></div>
+<div><span>03</span><h3>Продвижение артиста</h3><p>Стратегия, креативы, аналитика и постоянная оптимизация бюджета.</p></div>
+<div><span>04</span><h3>Консультации и обучение</h3><p>Обучение с нуля, помощь в настройке рекламы, построение маркетинговой стратегии.</p></div>
+</div><a class="cta" href="#contacts">Написать мне</a></section>
+
+<section id="contacts"><div class="hd"><h2>Контакты</h2></div>
+<div class="ct"><a href="mailto:hello@example.com"><small>Почта</small><b>hello@example.com</b></a><a href="https://t.me/"><small>Telegram</small><b>Написать в Telegram</b></a></div></section>
+</div>
+<script>
+(function(){var t=document.getElementById('t'),c=document.getElementById('c'),k=t.children,n=k.length;
+function st(){return k[0].offsetWidth+16}
+function upd(){var i=Math.min(n,Math.round(t.scrollLeft/st())+1);c.textContent='0'+i+' / 0'+n}
+t.addEventListener('scroll',upd,{passive:true});
+document.getElementById('nx').onclick=function(){t.scrollBy({left:st(),behavior:'smooth'})};
+document.getElementById('p').onclick=function(){t.scrollBy({left:-st(),behavior:'smooth'})};
+})();
+</script>
+</body>
+</html>
